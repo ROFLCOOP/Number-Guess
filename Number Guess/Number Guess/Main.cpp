@@ -5,11 +5,13 @@
 
 #include "NumGuess.h"
 #include "ScoreBoard.h"
+#include "AINumGuess.h"
 
 enum choice
 {
 	Play,
 	Score,
+	Robot,
 	Quit,
 	def	// def = default
 };
@@ -21,6 +23,7 @@ choice makeChoice()
 
 	std::cout << "What would you like to do?\n"
 		<< "P. Play\n"
+		<< "R. Watch AI\n"
 		<< "S. ScoreBoard\n"
 		<< "Q. Quit\n" << std::endl;
 	std::cin >> playerChoice;
@@ -30,6 +33,10 @@ choice makeChoice()
 	case 'P':
 	case 'p':
 		return Play;
+		break;
+	case 'R':
+	case 'r':
+		return Robot;
 		break;
 	case 'S':
 	case 's':
@@ -48,6 +55,7 @@ choice makeChoice()
 int main()
 {
 	NumGuess randNumGame;
+	AINumGuess aiGame;
 	bool numGuessed = false;
 	choice phase = def;
 
@@ -60,6 +68,10 @@ int main()
 			randNumGame.startGame();
 			randNumGame.takeTurn();
 			randNumGame.endGame();
+		}
+		if (phase == Robot)
+		{
+			aiGame.aiPlay();
 		}
 		if (phase == Score)
 		{

@@ -8,7 +8,6 @@
 NumGuess::NumGuess()
 {
 	seedTime();
-
 }
 
 
@@ -18,7 +17,11 @@ NumGuess::~NumGuess()
 
 void NumGuess::printScore()
 {
-	scoreBoard.printScoreboard();
+	system("cls");
+	scoreBoardEasy.printScoreboard();
+	scoreBoardMedium.printScoreboard();
+	scoreBoardHard.printScoreboard();
+	system("pause");
 }
 
 void NumGuess::seedTime()
@@ -161,21 +164,21 @@ void NumGuess::insertScore()
 {
 	char choice = 0;
 	std::string name;
-	int difficultNum;
+
+	bool highScore;
 	if (m_difficultLevel == easy)
 	{
-		difficultNum = 0;
+		highScore = scoreBoardEasy.compareScore(m_turnNum);
 	}
 	if (m_difficultLevel == medium)
 	{
-		difficultNum = 1;
+		highScore = scoreBoardMedium.compareScore(m_turnNum);
 	}
 	if (m_difficultLevel == hard)
 	{
-		difficultNum = 2;
+		highScore = scoreBoardMedium.compareScore(m_turnNum);
 	}
 
-	bool highScore = scoreBoard.compareScore(m_turnNum, difficultNum);
 	if (highScore)
 	{
 		bool goodCommand = false;
@@ -194,7 +197,20 @@ void NumGuess::insertScore()
 				std::cout << "Write your name (8 char, no spaces): ";
 				std::cin >> name;
 				name.resize(8);
-				scoreBoard.insertScore(name, m_turnNum, difficultNum);
+
+				if (m_difficultLevel == easy)
+				{
+					scoreBoardEasy.insertScore(name, m_turnNum);
+				}
+				if (m_difficultLevel == medium)
+				{
+					scoreBoardMedium.insertScore(name, m_turnNum);
+				}
+				if (m_difficultLevel == hard)
+				{
+					scoreBoardHard.insertScore(name, m_turnNum);
+				}
+
 				goodCommand = true;
 				break;
 			case 'n':

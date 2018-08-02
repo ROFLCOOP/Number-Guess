@@ -24,12 +24,24 @@
     <ClCompile Include="ScoreBoard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ScoreBoardType.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AINumGuess.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NumGuess.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ScoreBoard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScoreBoardType.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AINumGuess.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -3,35 +3,21 @@
 
 const int boardSize = 10;
 
-struct scoreBoardArr
-{
-	std::string playerName;
-	int playerScore;
-};
+
 
 class ScoreBoard
 {
 public:
-	scoreBoardArr m_scoreBoardEasy[boardSize];
-	scoreBoardArr m_scoreBoardMedium[boardSize];
-	scoreBoardArr m_scoreBoardHard[boardSize];
+	virtual bool compareScore(int score);
+	void insertScore(std::string name, int score);
+	virtual void printScoreboard() = 0;
 
-
-	ScoreBoard();
-	~ScoreBoard();
-
-	enum difficulty
+protected:
+	struct scoreBoardArr
 	{
-		easy,
-		medium,
-		hard
+		std::string playerName;
+		int playerScore;
 	};
-
-	void printScoreboard();
-	bool compareScore(int score, int difficultNum);
-	void insertScore(std::string name, int score, int difficultNum);
-
-private:
-	void sortScoreBoard(difficulty difficult);
+	virtual void sortScoreBoard();
+	scoreBoardArr m_scoreBoard[boardSize];
 };
-

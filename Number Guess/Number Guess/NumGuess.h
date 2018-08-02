@@ -1,5 +1,5 @@
 #pragma once
-#include "ScoreBoard.h"
+#include "ScoreBoardType.h"
 
 
 class NumGuess
@@ -38,7 +38,9 @@ private:
 	bool win = false;
 
 public:
-	ScoreBoard scoreBoard;
+	ScoreBoardEasy scoreBoardEasy;
+	ScoreBoardMedium scoreBoardMedium;
+	ScoreBoardHard scoreBoardHard;
 	int m_turnNum = 0;
 };
 
